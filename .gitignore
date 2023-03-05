@@ -1,2 +1,7 @@
 .ipynb_checkpoints
 /preprocessing/__pycache__/
+dist/
+preprocessing.egg-info/
+setup.py
+clustering/mlruns/
+clustering/__pycache__/
