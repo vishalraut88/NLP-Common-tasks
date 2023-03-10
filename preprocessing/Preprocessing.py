@@ -22,12 +22,14 @@ class Textpreprocessing():
         returns : cleaned text after pre processing
         """
         text = text.lower()
+        text = re.sub(r'http\S+', '', text)        
         text = re.sub("</?.*?>"," <> ",text)
-        text = re.sub("(\\d|\\W)+"," ",text)
+        text = re.sub("(\\d|\\W)+"," ",text)        
         text = text.replace("_","")
         #remove punctuation
         text = [char for char in text if char not in string.punctuation]
         text = ''.join(text)
         stopwords = nltk.corpus.stopwords.words('english')
+        stopwords.extend(['amp','like','û'])
         text = ' '.join([word for word in text.split() if word not in (stopwords)])            
         return text
